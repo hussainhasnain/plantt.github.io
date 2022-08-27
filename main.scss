@@ -1,0 +1,421 @@
+/* ==================== CSS File =================== */
+
+/* ==================== Media Queries =================== */
+$bp-smallest: 24em; // for 375px
+$bp-small: 37.5em; // for 600px
+$bp-medium:56.25em; // for 900px
+$bp-large: 75em; // for 1200px
+$bp-largest:112.5em; // for 1800px
+
+/* ==================== Fonts =================== */
+$font-primary: 'Lobster', sans-serif;
+
+/* ==================== Colors =================== */
+$color-white: #fff;
+$color-black: #000;
+$color-primary: #0C3F37;
+$color-secondary: #FFC85B;
+$color-text: #4E4E4E;
+$color-grey-light: #e6e6e6;
+$color-heading: #0C3F37;
+$color-footer: #C0E4DF;
+
+/* ==================== Center our content =================== */
+.row{
+    max-width: 114rem;
+    margin: 0 auto;
+    @media only screen and (max-width: $bp-large){
+        max-width: 100rem;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: $bp-medium){
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: $bp-small){
+        max-width: 55rem;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: $bp-smallest){
+        max-width: 50rem;
+        margin: 0 auto;
+    }
+}
+
+/* ==================== Basic Styling =================== */
+ul{
+    list-style: none;
+
+}
+a{
+    text-decoration: none;
+    color: $color-text;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+h1,h2,h3,h4,h5{
+    color: $color-heading;
+}
+.upper-text{
+    text-transform: uppercase;
+}
+.center-text{
+    text-align: center;
+}
+
+*,
+*:before,
+*:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    @media only screen and (max-width: $bp-large){
+        font-size: 56.25%; //9rem
+    }
+    @media only screen and (max-width: $bp-medium){
+        font-size: 50%; //8rem
+    }
+    @media only screen and (max-width: $bp-small){
+        font-size: 47.35%; //7rem
+    }
+    @media only screen and (max-width: $bp-smallest){
+        font-size: 37.5%; //6rem
+    }
+}
+body{
+    font-family: $font-primary;
+    font-weight: 400;
+    color: $color-text;
+    line-height: 1.6;
+    overflow: hidden;
+}
+/* ==================== Header Starts Here =================== */
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 9.6rem;
+    padding: 0 6rem;
+    z-index: 9999;
+    
+}
+.logo{
+   font-size: 3.2rem;
+   color: $color-white;
+   z-index: 10;
+}
+.main-nav{
+    transform: translateX(-20rem);
+    @media only screen and (max-width: $bp-large){
+        transform: translateX(0);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba($color-primary, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateX(100%);
+        transition: all 0.5s;
+    }
+    &__list{
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        @media only screen and (max-width: $bp-large){
+            flex-direction: column;
+        }
+    }
+    &__link{
+        font-size: 2.2rem;
+        transition: all 0.3s;
+        &:hover{
+            color: $color-primary;
+        }
+        &--main{
+            font-weight: 800;
+            color: $color-black;
+        }
+    }
+    &__cta{
+        transform: translateX(20rem);
+        @media only screen and (max-width: $bp-large){
+            transform: translateX(0);
+        }
+    }
+}
+.btn-mobile-nav{
+    border: none;
+    background: none;
+    display: none;
+    z-index: 9999;
+    @media only screen and (max-width: $bp-large){
+        display: block;
+    }
+}
+.icon-mobile-nav{
+    font-size: 4rem;
+    cursor: pointer;
+}
+.icon-mobile-nav[name="close-outline"]{
+    display: none;
+}
+.nav-open .icon-mobile-nav[name="menu-outline"]{
+    display: none;
+}
+.nav-open .icon-mobile-nav[name="close-outline"]{
+    display: block;
+}
+.nav-open .main-nav{
+    @media only screen and (max-width: $bp-large){
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(0);
+    }
+}
+.btn{
+    display: inline-block;
+    
+    &__light{
+        padding: 1rem 3rem;
+        border: 1px solid $color-primary;
+        color: $color-primary;
+        font-size: 1.8rem;
+        &:hover{
+            background-color: $color-primary;
+            color: $color-white;
+            transition: all 0.5s;
+        }
+    }
+    &__dark{
+        padding: 1rem 3rem;
+        background-color:$color-primary;
+        color: $color-white;
+        border: 1px solid $color-primary;
+        font-size: 1.8rem;
+        &:hover{
+            background-color: $color-white;
+            color: $color-primary;
+            border: 1px solid $color-primary;
+            transition: all 0.5s;
+        }
+        &--gallery{
+            margin-right: 2rem;
+        }
+    }
+}
+/* ==================== Heading starts Here =================== */
+.heading-primary{
+    font-size: 6rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+.heading-secondary{
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 1;
+}
+.heading-tertiary{
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1;
+}
+/* ==================== Header Ends Here =================== */
+
+/* ==================== Hero Starts Here =================== */
+.hero{
+    &__content{
+        display: flex;
+        align-items: center;
+        &:before{
+            content: '';
+            position: absolute;
+            background-image: url(../img/shape.png);
+            background-size: cover;
+            background-position: right;
+            width: 70%;
+            height: 100%;
+            top: 0;
+            left: -30%;
+
+        }
+    }
+    &__photo{
+        flex: 0 0 50%;
+    }
+    &__textbox{
+        flex: 0 0 50%;
+        padding: 0 5vw 0 0;
+        & > *:not(:last-child){
+            margin-bottom: 4rem;
+        }
+        &--text{
+            font-size: 2.2rem;
+        }
+    }
+}
+
+
+/* ==================== Section Hero Ends Here =================== */
+
+/* ==================== Section Gallery Starts Here =================== */
+
+.gallery{
+    margin: 20rem 0 0 0;
+    &__content{
+        display: flex;
+        align-items: center;
+    }
+    &__textbox{
+        padding: 0 5vw 0 5vw;
+        position: relative;
+        & > *:not(:last-child){
+            margin-bottom: 4rem;
+        }
+        &:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(to bottom, $color-primary, $color-white);
+            width: .3rem;
+            height: 100%;
+            color: $color-primary;
+        }
+        &--text{
+            font-size: 1.8rem;
+            padding: 0 20vw 0 0;
+        }
+    }
+    &__photo{
+        &--img{
+            max-width: 200%;
+            transform: translateX(-25rem);
+        }
+        &--btn{
+            transform: translateY(-8rem);
+        }
+    }
+}
+
+.swiper {
+    // width: 600px;
+    // height: 300px;
+  }
+/* ==================== Section Gallery Ends Here =================== */
+
+/* ==================== Section Plant Starts Here =================== */
+
+.plant{
+    &__content{
+        display: flex;
+        align-items: center;
+    }
+    &__textbox{
+        text-align: right;
+        position: relative;
+        & > *:not(:last-child){
+            margin-bottom: 4rem;
+        }
+        &:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -5%;
+            background-image: linear-gradient(to bottom, $color-primary, $color-white);
+            width: .3rem;
+            height: 100%;
+            color: $color-primary;
+        }
+        &--text{
+            font-size: 1.8rem;
+            padding: 0 0 0 20vw;
+        }
+    }
+    &__photo{
+        &--img{
+            max-width: 200%;
+        }
+        &--btn{
+            transform: translate(25rem, -10rem);
+        }
+    }
+}
+/* ==================== Section Plant Ends Here =================== */
+
+/* ==================== Section Product Starts Here =================== */
+.product{
+    padding: 20rem 0;
+    &__desc{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__content{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
+    &__item{
+        &--img{
+            max-width: 110%;
+        }
+    }
+}
+/* ==================== Section Product Ends Here =================== */
+
+/* ==================== Footer Starts Here =================== */
+.footer{
+    background-color: $color-primary;
+    padding: 10rem 0;
+    &__content{
+        text-align: center;
+        & > *:not(:last-child){
+            margin-bottom: 4rem;
+        }
+    }
+    &__logo{
+        font-size: 4rem;
+        color: $color-white;
+    }
+    &__nav{
+        &--list{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8rem
+
+        }
+        &--link{
+            font-size: 2.5rem;
+            color: $color-footer;
+            transition: all 0.3s;
+            &:hover{
+                color: $color-secondary;
+            }
+        }
+    }
+    &__line{
+        width: 100%;
+        height: 2px;
+        background-color: $color-white;
+    }
+    &__copyright{
+        font-size: 1.8rem;
+        color: $color-footer;
+    }
+}
+/* ==================== Footer Ends Here =================== */
